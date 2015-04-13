@@ -1,3 +1,9 @@
+#include <iostream>
+
+using namespace std;
+
+// ***** QUESTION 3 ******
+// Question 3 has 3 parts
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //                         COMPUTER METHODS 3 PRACTICAL TEST 1 (MOCK)
 // Name:
@@ -5,6 +11,8 @@
 // Date: 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
+#include <string.h>
+
 
 using namespace std;
 
@@ -22,6 +30,44 @@ private:
 	int num;				// numerator;
 	int denom;				// denominator;
 public:
-	Fraction(int n, int d) : num(n), denum(d) { };
+	Fraction();
+	Fraction(int n, int d) : num(n), denom(d) { };
 	void print() { cout << num << "/" << denom; };
+	bool operator>(Fraction &);
+	Fraction add(int, Fraction);
+
 };
+
+bool Fraction:: operator>(Fraction &frac1)
+{
+	cout << num*frac1.denom << endl;
+	cout << frac1.num * denom << endl;
+	return ((num*frac1.denom) > (frac1.num * denom));
+}
+
+Fraction Fraction::add(int val, Fraction arg)
+{
+	Fraction temp(0, 1);
+	temp.num = (arg.num) + (arg.denom*val);
+	temp.denom = arg.denom;
+	return temp;
+}
+
+int main()
+{
+	Fraction frac2(2, 5);
+	Fraction frac1(1, 4);
+	int num = 3;
+
+
+
+
+	cout << (frac1 > frac2) << endl;
+
+
+
+
+
+	system("pause");
+	return 0;
+}
